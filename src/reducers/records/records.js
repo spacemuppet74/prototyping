@@ -88,7 +88,8 @@ const updateRecord = (state, { payload }) => {
     byIds: {
       ...state.byIds,
       [payload.record.Id]: payload.record
-    }
+    },
+    activeRecord: null
   };
 };
 

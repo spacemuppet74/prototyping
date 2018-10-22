@@ -18,7 +18,6 @@ const RecordForm = ({ addNewRecord, record, updatedRecord }) => {
 
     if (values.Id) {
       const result = await spRestCall.updateRecord(values);
-      console.log("update record ", result);
       updatedRecord(values);
     } else {
       const { data, item } = await spRestCall.postRecord(values);
