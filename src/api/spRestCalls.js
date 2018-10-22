@@ -1,10 +1,30 @@
 import { sp } from "@pnp/sp";
 
 class SpRestCalls {
-  postRecord({ email }) {
+  getRecords() {
+    return sp.web.lists.getByTitle("prototype").items.get();
+  }
+
+  postRecord({ Title }) {
     return sp.web.lists.getByTitle("prototype").items.add({
-      Title: email
+      Title
     });
+  }
+
+  updateRecord({ Id, Title }) {
+    return sp.web.lists
+      .getByTitle("prototype")
+      .items.getById(Id)
+      .update({
+        Title
+      });
+  }
+
+  deleteRecord(recordId) {
+    return sp.web.lists
+      .getByTitle("prototype")
+      .items.getById(recordId)
+      .delete();
   }
 }
 
